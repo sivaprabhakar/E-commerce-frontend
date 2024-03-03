@@ -1,0 +1,252 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body {
+  font-family: 'Rubik', sans-serif !important;
+ overflow-x: hidden;
+}
+a{
+  text-decoration: none !important;
+  display: inline-block;
+}
+/* header page start */
+
+.custom-toggle-button {
+  background-color: #f8f9fa !important; 
+  border: 1px solid #dee2e6; 
+  color: black; 
+}
+#basic-nav-dropdown {
+  color: white !important;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+ 
+}
+.searchicon{
+  position: relative;
+  top:-6px;
+}
+.text-white h1{
+  color: #febd69 !important;
+}
+.text-white{
+  color:white !important;
+}
+.button{
+  background-color: #232f3e;
+  color:white;
+  font-size: 14px;
+  border: none;
+  padding: 13px 33px;
+  border-radius: 22px;
+}
+.button:hover{
+  background-color: #febd69;
+  color:#232f3e;
+}
+/* header page end */
+/* Home page starts*/
+.cars{
+  background-color: rgb(249, 238, 238)!important;
+}
+.carousel-caption-container {
+
+  color: rgb(8, 8, 8); /* Text color */
+}
+
+.carousel-caption-container h1 {
+  font-size: 2rem  !important; /* Heading font size */
+  margin-bottom: 10px; /* Bottom margin for the heading */
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start;
+  position: relative!important;
+  left:170px;
+  top:-160px;
+}
+
+.carousel-caption-container p {
+  position: relative!important;
+  left:170px;
+  top:-160px;
+  font-size: 1.5rem; /* Paragraph font size */
+  margin-bottom: 20px; /* Bottom margin for the paragraph */
+}
+
+.carousel-caption-container .btn {
+  position: relative!important;
+  left:170px;
+  top:-160px;
+  font-size: 1.5rem;
+ 
+}
+.carousel-caption-container .btn {
+  font-size: 1.5rem;
+  background-color: #232f3e;
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 22px; /* Border radius */
+}
+
+/* Hover effect */
+.carousel-caption-container .btn:hover {
+  background-color: #febd69;
+  color:#232f3e;
+
+}
+/* Media query for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .carousel-caption-container h1 {
+    position: relative!important;
+    left:50px;
+    top:-160px;
+    font-size: 1.5rem; /* Reduce heading font size for smaller screens */
+  }
+
+  .carousel-caption-container p {
+    position: relative!important;
+    left:50px !important;
+    top:-160px !important;
+    font-size: 1rem !important; /* Reduce paragraph font size for smaller screens */
+  }
+
+  .carousel-caption-container .btn {
+    position: relative!important;
+    left:50px !important;
+    top:-160px !important;
+    font-size: 1rem !important; /* Reduce button font size for smaller screens */
+  }
+  .d-block {
+    height: 400px !important; /* Reduce image height for smaller screens */
+  }
+}
+@media (max-width: 438px) {
+  .carousel-caption-container h1 {
+    position: relative!important;
+    left:30px;
+    top:-160px;
+    font-size: 0.5rem; /* Reduce heading font size for smaller screens */
+  }
+
+  .carousel-caption-container p {
+    position: relative!important;
+    left:30px !important;
+    top:-160px !important;
+    font-size: 1rem !important; /* Reduce paragraph font size for smaller screens */
+  }
+
+  .carousel-caption-container .btn {
+    position: relative!important;
+    left:30px !important;
+    top:-160px !important;
+    font-size: 1rem !important; 
+    /* Reduce button font size for smaller screens */
+  }
+}
+
+/* home page ends  */
+
+/* signup & signin page  */
+.container {
+  margin-top: 50px;
+}
+
+.card-custom{
+  background-color: #f9eeee!important;
+  box-shadow: 0 8px 32px 0 rgb(110, 112, 132);
+  backdrop-filter: blur(5px)!important;
+  -webkit-backdrop-filter: blur(5px)!important;
+  border-radius: 24px!important;
+  border: 1px solid rgba(247, 246, 246, 0.18)!important;
+  padding: 20px;
+  border: none !important;
+}
+.card-header {
+  background-color:rgb(254, 213, 213)!important;
+  border: none !important;
+}
+
+.form-label {
+  font-weight :500;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.97)!important;
+  border: none!important;
+  border-radius: 5px!important;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.button {
+  background-color: #090f56;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.text-danger {
+  color: #DC3545;
+}
+.btn
+
+/* product cards */
+.card-2 {
+  box-shadow: 0 8px 32px 0 rgb(110, 112, 132)!important;
+  backdrop-filter: blur(5px)!important;
+  transition: transform 0.3s;
+  
+}
+.card{
+  box-shadow: 0 8px 20px 0 rgb(110, 112, 132)!important;
+  border: none !important;
+  border-radius: 24px !important;
+}
+.card-2:hover {
+  transform: scale(1.05);
+}
+
+
+.btn-warning{
+  font-weight: 300 !important;
+  border: none!important;
+  border-radius: 6px!important;
+}
+.btn-warning:hover{
+  background-color: #232f3e !important;
+  color:white !important;
+}
+
+.title span{
+  color:#981f1f;
+}
+.card-text span{
+color:rgb(31, 239, 31)
+}
+span.badge{
+  width:98px;
+  position: absolute;
+ font-weight: 400;
+  top: 9px;
+  left: -23px;
+  transform: rotate(-45deg);
+  padding: 5px 10px;
+  z-index: 1;
+  border-radius: 0;
+  clip-path: polygon(23% 0%, 62% -30%, 92% 100%, 0% 100%);
+}
