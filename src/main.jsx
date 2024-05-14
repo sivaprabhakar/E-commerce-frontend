@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import { store } from './components/Redux/Store.jsx';
 
 
-// axios.defaults.baseURL = "https://e-commerce-backend-ubfr.onrender.com"
-axios.defaults.baseURL="http://localhost:8000"
+axios.defaults.baseURL = "https://e-commerce-backend-ubfr.onrender.com"
+// axios.defaults.baseURL="http://localhost:8000"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

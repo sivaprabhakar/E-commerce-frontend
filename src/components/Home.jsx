@@ -1,29 +1,72 @@
-import { Carousel, Container, Button, Card, Row, Col } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import { getAllProducts } from './ApiService/ApiService';
+import React, { useState, useEffect } from 'react';
+import { Carousel, Container, Button, Row,Col } from 'react-bootstrap';
 import ProductDetail from './Products/ProductDetails';
-
+import Header from './Header/Header';
+import { searchProducts, getAllProducts } from './ApiService/ApiService';
 
 function Home() {
-  const [products, setProducts] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showCarousel, setShowCarousel] = useState(true); // State to control carousel visibility
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const handleSearch = async (searchQuery) => {
+    try {
+      console.log('Searching for:', searchQuery);
+      const result = await searchProducts(searchQuery);
+      console.log('Search result:', result);
+      setSearchResults(result);
+      setShowCarousel(false); // Hide carousel when search results are available
+    } catch (error) {
+      console.error('Error searching products:', error);
+    }
+  };
 
+  // Fetch all products on component mount
+  // useEffect(() => {
+  //   getAllProducts()
+  //     .then((data) => {
+  //       if (data && data.Products) {
+  //         setSearchResults(data.Products);
+  //       } else {
+  //         console.error('Error fetching products: Invalid data format');
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching products:', error);
+  //     });
+  // }, []);
   useEffect(() => {
-    getAllProducts()
-      .then((data) => {
-        if (data && data.Products) {
-          setProducts(data.Products);
-        } else {
-          console.error('Error fetching products: Invalid data format');
-        }
-      })
-      .catch((error) => {
-        console.error('Error fetching products:', error);
-      });
-  }, []);
-    
-  return <>
-    <Carousel className='cars'>
-      <Carousel.Item>
+    if (selectedCategory) {
+      // If a category is selected, search products based on the category
+      searchProducts('', selectedCategory)
+        .then((result) => {
+          setSearchResults(result);
+        })
+        .catch((error) => {
+          console.error('Error searching products:', error);
+        });
+    } else {
+      // If no category is selected, fetch all products
+      getAllProducts()
+        .then((data) => {
+          if (data && data.Products) {
+            setSearchResults(data.Products);
+          } else {
+            console.error('Error fetching products: Invalid data format');
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching products:', error);
+        });
+    }
+  }, [selectedCategory]);
+
+  return (
+    <>
+      <Header handleSearch={handleSearch}
+      onSelectCategory={setSelectedCategory}/>
+      {showCarousel && ( // Conditionally render the carousel if showCarousel is true
+        <Carousel className='cars'>
+           <Carousel.Item>
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
@@ -80,24 +123,33 @@ function Home() {
           </Container>
         </div>
       </Carousel.Item>
-    </Carousel>
- 
-      <Row className="justify-content-center mt-5">
-        <div className="title d-flex justify-content-center "><h1>New <span>Launches</span> </h1></div>
+        </Carousel>
+      )}
+      <Container className="my-5">
        
-        {products && products.slice(0,8).map((product,index) => (
-          <ProductDetail
-            key={product._id}
-            id={product._id}
-            title={product.title}
-            imageUrl={product.imageUrl[0]} 
-            price={product.price}
-            isNew={index<8}
-          />
-        ))}
-         </Row>
-          
-  </>
+        {searchResults.length > 0 ? (
+          <Row className="justify-content-center mt-5">
+            <div className="title d-flex justify-content-center ">
+            <h1>New <span>Launches</span> </h1>
+            </div>
+           
+            {searchResults.map((product, index) => (
+              <ProductDetail
+                key={product._id}
+                id={product._id}
+                title={product.title}
+                imageUrl={product.imageUrl}
+                price={product.price}
+                isNew={index < 20}
+              />
+            ))}
+          </Row>
+        ) : (
+          <div><h5>no products found</h5> </div>
+        )}
+      </Container>
+    </>
+  );
 }
 
 export default Home;

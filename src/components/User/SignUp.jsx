@@ -25,7 +25,7 @@ function Signup() {
       const response = await axios.post('/user/signup', values);
       if (response.status === 201) {
         toast.success('Signup successful! Please sign in.');
-        navigate('/');
+        navigate('/signin');
       }
     } catch (error) {
       setLoading(false);

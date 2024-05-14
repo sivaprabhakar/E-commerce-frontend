@@ -1,10 +1,17 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
-  return (
-    <footer className="bg-dark text-white py-4">
+  const location = useLocation();
+
+  // Check if the current location is the home page
+  const isHomePage = location.pathname === '/';
+
+  // Render the footer only if it's the home page
+  return isHomePage ? (
+    <footer className="footer bg-dark text-white py-4">
       <Container>
         <Row>
           <Col md={4} className="mb-4">
@@ -35,7 +42,7 @@ function Footer() {
         </Row>
       </Container>
     </footer>
-  );
+  ) : null;
 }
 
 export default Footer;

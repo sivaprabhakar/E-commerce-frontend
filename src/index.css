@@ -30,7 +30,8 @@ a{
 }
 .searchicon{
   position: relative;
-  top:-6px;
+  top:-7px;
+  left:2px;
 }
 .text-white h1{
   color: #febd69 !important;
@@ -50,6 +51,8 @@ a{
   background-color: #febd69;
   color:#232f3e;
 }
+
+
 /* header page end */
 /* Home page starts*/
 .cars{
@@ -193,7 +196,13 @@ a{
   padding: 10px 20px;
   cursor: pointer;
 }
-
+.cart{
+  background: none !important;
+  border: none !important;
+  color:#ffffff !important;
+  position: relative;
+  top:-2px;
+}
 
 
 .mt-3 {
@@ -236,7 +245,7 @@ a{
   color:#981f1f;
 }
 .card-text span{
-color:rgb(31, 239, 31)
+  color:rgb(31, 239, 31);
 }
 span.badge{
   width:98px;
@@ -249,4 +258,210 @@ span.badge{
   z-index: 1;
   border-radius: 0;
   clip-path: polygon(23% 0%, 62% -30%, 92% 100%, 0% 100%);
+}
+.col-md-6 h5 span{
+  color:rgb(29, 228, 29) !important;
+}
+/* individual product  */
+.btn-lg {
+ 
+  font-weight: 400!important;
+  
+  border-radius: 24px !important;
+}
+/* cart starts */
+.img-fluid{
+  position:relative;
+  left:10px;
+  padding:10px;
+}
+/* Custom styles */
+/* .cart-item img {
+  width: 100px;
+  height: 100px;
+} */
+/* p.card-text{
+  display:flex !important;
+  justify-content: end !important;
+  position: relative;
+  left:180px;
+} */
+.cart-item h5 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.cart-item .btn {
+  margin: 0 5px;
+}
+
+.order-summary-values {
+  font-weight: bold;
+}
+
+#checkout_btn:hover {
+  background-color: #0056b3;
+}
+ /* CSS styles for Products component */
+
+/* Hover effect for Add to Cart button */
+.btn-add-to-cart:hover {
+  background-color: #e0c815 !important;
+  border-color: #e0c815 !important;
+}
+
+/* Hover effect for Buy Now button */
+.btn-buy-now:hover {
+  background-color: #ff7300;
+  border-color: #ff7300;
+}
+/* shipping form */
+
+.custom-form-container {
+  background-color: #ffffff; /* Update background color */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgb(110, 112, 132); /* Add box shadow */
+  max-width: 600px !important; /* Reduce the maximum width of the container */
+  margin: 0 auto; 
+  /* Center the container horizontally */
+}
+
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #dee2e6;
+  margin: 20px 0;
+}
+
+.custom-input {
+  background-color: #ffffff;
+  /* border: 0.2px solid #d4d4d4 !important; */
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px 0 rgb(192, 194, 195)!important; 
+}
+
+.submit-button {
+
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Add box shadow */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* check outs  */
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 20px; /* Add top margin */
+}
+
+.step-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.step-item.active .step-number {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.step-item.active .step-label {
+  color: #007bff;
+}
+
+.step-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #e9ecef;
+  color: #6c757d;
+  border-radius: 50%;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.step-label {
+  display: block;
+  margin-top: 5px; /* Reduce top margin */
+  font-size: 14px;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .step-number, .step-label {
+      font-size: 14px;
+  }
+}
+/* confirm order section */
+.confirmImage{
+  height:160px !important;
+}
+
+/* payment  */
+
+.payment-button {
+  background-color: #FF9900 !important;
+  border-color: #FF9900 !important;
+  color: #000000 !important;
+  border-radius: 32px  !important;
+}
+
+.payment-button:hover {
+  background-color: #FF8000 !important;
+}
+
+/* order sucess page  */
+.order-success-container {
+  position: relative;
+  top:150px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-success-container.show {
+  background-color: rgba(255, 252, 252, 0.5); /* Semi-transparent background */
+}
+
+.order-success-container .container {
+  z-index: 1; /* Ensure content appears above the background */
+}
+.text-green {
+  color: rgb(2, 136, 2);
+}
+
+/* userprofile  */
+.btn-flipkart {
+  background-color: #fb641b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-flipkart:hover {
+  background-color: #ff8c00;
+}
+
+.btn-flipkart i {
+  margin-right: 5px;
 }
