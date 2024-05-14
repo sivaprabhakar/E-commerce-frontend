@@ -5,7 +5,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Provider } from 'react-redux';
-import { store } from './components/Redux/Store.jsx';
+import { store } from './components/Redux/store.jsx';
 
 
 axios.defaults.baseURL = "https://e-commerce-backend-ubfr.onrender.com"
