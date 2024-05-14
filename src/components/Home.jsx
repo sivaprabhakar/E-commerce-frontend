@@ -70,7 +70,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/public/images/i watch 800.jpg"
+            src="/src/assets/i watch 800.jpg"
             alt="i watch"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />
@@ -89,7 +89,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/public/images/image-800x400 (1).jpg"
+            src="/src/assets/image-800x400 (1).jpg"
             alt="Headphone"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />
@@ -108,7 +108,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/public/images/image-800x400 (2).jpg"
+            src="/src/assets/image-800x400 (2).jpg"
             alt="ear buds"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />

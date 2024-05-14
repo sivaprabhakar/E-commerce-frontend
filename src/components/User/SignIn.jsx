@@ -16,7 +16,11 @@ function SignIn() {
       setSubmitting(false);
       navigate('/'); // Navigate to the home screen
     } catch (error) {
-      toast.error('Invalid email or password'); // Display error toast
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message); // Display the error message from the response in a toast
+      } else {
+        toast.error('An error occurred. Please try again later.'); // Display a generic error message
+      }
       setSubmitting(false);
     }
   };
