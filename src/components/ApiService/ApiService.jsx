@@ -33,7 +33,7 @@ export const getAllProducts = async () => {
 export const getProductDetails = async (id) => {
   try {
       const res = await axios.get(`/product/${id}`);
-      console.log("Product details response:", res.data); // Add console log to check product details response
+      
       return res.data;
   } catch (error) {
       console.error("Error fetching product details:", error);

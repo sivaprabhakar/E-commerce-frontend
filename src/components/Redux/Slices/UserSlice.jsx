@@ -27,7 +27,7 @@ const userSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.userId = action.payload.userId; // Store the user ID in the Redux state
-      console.log("login successful", 'Token:', action.payload.token);
+    
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('userId', action.payload.userId); // Store userId in localStorage
     },
