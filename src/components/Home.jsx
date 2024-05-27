@@ -3,7 +3,9 @@ import { Carousel, Container, Button, Row,Col } from 'react-bootstrap';
 import ProductDetail from './Products/ProductDetails';
 import Header from './Header/Header';
 import { searchProducts, getAllProducts } from './ApiService/ApiService';
-
+import image1 from '../assets/images/i watch 800.jpg'
+import image2 from '../assets/images/image-800x400 (1).jpg'
+import image3 from '../assets/images/image-800x400 (2).jpg'
 function Home() {
   const [searchResults, setSearchResults] = useState([]);
   const [showCarousel, setShowCarousel] = useState(true); // State to control carousel visibility
@@ -70,7 +72,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/src/assets/i watch 800.jpg"
+            src={image1}
             alt="i watch"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />
@@ -89,7 +91,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/src/assets/image-800x400 (1).jpg"
+            src={image2}
             alt="Headphone"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />
@@ -108,7 +110,7 @@ function Home() {
         <div className="d-block w-100 position-relative">
           <img
             className="d-block"
-            src="/src/assets/image-800x400 (2).jpg"
+            src={image3}
             alt="ear buds"
             style={{ height: '500px', width: '90%', margin: '0 auto' }}
           />
