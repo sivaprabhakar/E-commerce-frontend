@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const OrderSuccessPage = () => {
     const [show, setShow] = useState(false);
@@ -21,7 +22,9 @@ const OrderSuccessPage = () => {
                             <h2 className="mt-3 text-green">Payment Success!</h2>
                             <h2 className="mt-3 ">Your order has been placed Successfully!</h2>
                             <p className="lead">Thank You for Shopping.</p>
-                            <Button variant="primary" href="/userorders">Go to Orders</Button>
+                            <Link to="/userorders">
+                            <Button variant="primary" >Go to Orders</Button>
+                            </Link>
                         </div>
                     </Col>
                 </Row>
