@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { getProductDetails, addToCart } from "../ApiService/ApiService";
 import { useDispatch, useSelector } from "react-redux";
 import { FaCartPlus, FaShoppingCart } from 'react-icons/fa';
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
+
 const Products = () => {
   const { id } = useParams();
   
@@ -20,7 +21,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const userId = useSelector(state => state.user.userId);
   const cartItems = useSelector(state => state.cart.cartItems) || [];
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -28,17 +29,14 @@ const Products = () => {
 
     getProductDetails(id)
       .then((res) => {
-     
         if (res && res.product) {
           setProduct(res.product);
         } else {
-         
           setError("No product found.");
         }
         setLoading(false);
       })
       .catch((err) => {
-        
         setError("Error fetching product details. Please try again.");
         setLoading(false);
       });
@@ -50,35 +48,48 @@ const Products = () => {
         console.error("Product not found");
         return;
       }
-  
-      // Check if user is authenticated
+
       if (!userId) {
         navigate('/signin'); 
         return;
       }
-  
+
       await addToCart(userId, product._id, quantity, dispatch);
       setSuccessMessage("Product added to cart successfully");
-  
+
       setTimeout(() => {
         setSuccessMessage("");
       }, 3000);
     } catch (error) {
-      if (error.response) {
-        if (error.response.status === 400) {
-          setErrorMessage("Product already in cart");
-        } else if (error.response.status === 401) {
-          setErrorMessage("Please sign in to add product to cart");
-        } else {
-          setErrorMessage("Error adding product to cart. Please try again.");
-        }
-      } else {
-        console.error("Error adding product to cart:", error);
-        setErrorMessage("Error adding product to cart. Please try again.");
-      }
+      handleAddToCartError(error);
     }
   };
-  
+
+  const handleAddToCartError = (error) => {
+    if (error.response) {
+      if (error.response.status === 400) {
+        setErrorMessage("Product already in cart");
+      } else if (error.response.status === 401) {
+        setErrorMessage("Please sign in to add product to cart");
+      } else {
+        setErrorMessage("Error adding product to cart. Please try again.");
+      }
+    } else {
+      console.error("Error adding product to cart:", error);
+      setErrorMessage("Error adding product to cart. Please try again.");
+    }
+  };
+
+  const handleBuyNow = () => {
+    if (!userId) {
+      navigate('/signin');
+      return;
+    }
+
+    // If the user is signed in, you can add the product to the cart and then navigate to the checkout page.
+    // You might want to add the product to the cart before navigating to checkout.
+    navigate('/shipping');
+  };
 
   const handleQuantityChange = (value) => {
     setQuantity(quantity + value > 0 ? quantity + value : 1);
@@ -153,6 +164,7 @@ const Products = () => {
                   }}
                   onMouseEnter={() => setBuyNowHover(true)}
                   onMouseLeave={() => setBuyNowHover(false)}
+                  onClick={handleBuyNow}
                 >
                   Buy Now
                 </button>

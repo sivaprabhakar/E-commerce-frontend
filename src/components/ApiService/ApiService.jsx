@@ -15,6 +15,7 @@ import {
   deleteOrderSuccess,
   deleteOrderFailure,
 } from '../Redux/Slices/OrderSlice';
+
 export const getAllProducts = async () => {
   try {
     const res = await axios.get('/product');

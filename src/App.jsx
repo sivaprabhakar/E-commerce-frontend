@@ -10,11 +10,14 @@ const stripePromise = loadStripe('pk_test_51P0wqLSB9FYhwMwalj1knAOpCnT1scuL6EfqK
 
 function App() {
   return (
+    <>
+    
     <BrowserRouter>
       <Elements stripe={stripePromise}>
         <AppRoutes />
       </Elements>
     </BrowserRouter>
+    </>
   );
 }
 
